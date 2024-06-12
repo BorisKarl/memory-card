@@ -20,7 +20,8 @@
 
 .card {
   text-align: center;
-  width: 400px;
+  width: 200px;
+  height: 200px;
   border: 1px solid black;
   border-radius: 5px;
 
@@ -31,8 +32,3 @@
   background-color: aqua;
 }
 
-.flexContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
