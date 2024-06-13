@@ -81,7 +81,7 @@ export default function Game() {
   useEffect(() => {
     const checkCounter = () => {
       if (count === 8) {
-        alert("Hooray, you know all the planets!");
+        alert("Gut gemacht, das waren alle acht Planeten!");
         setHighScore(count);
         setCount(0);
         setClickedImages([]);
@@ -98,15 +98,15 @@ console.log("Spinner? " + spinner);
   return (
     <>
       {spinner ? (
-        <div
-          className="loading_wrapper">
-          <h1>LOADING pictures from the NASA API...</h1>
+        <div className="loading_wrapper">
+          <h1>NASA API lädt die Planeten...</h1>
         </div>
       ) : (
         <div className="wrapper">
           <div className="counter">
-            <h1>Count: {count} </h1>
-            <h1 className="games_won">Games won: {gamesWon}</h1> <h1> High Score: {highScore} </h1>
+            <h1>Punkte: {count} </h1>
+            <h1 className="games_won">Spiele gewonnen: {gamesWon}</h1>{" "}
+            <h1> Highscore: {highScore} </h1>
           </div>
 
           <div className="card_grid">
