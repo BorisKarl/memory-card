@@ -99,7 +99,8 @@ console.log("Spinner? " + spinner);
     <>
       {spinner ? (
         <div className="loading_wrapper">
-          <h1>NASA API lädt die Planeten...</h1>
+          <h1>Klicke jeden Planeten nur ein Mal!
+          Etwas Geduld, die NASA API lädt die Planeten...</h1>
         </div>
       ) : (
         <div className="wrapper">
