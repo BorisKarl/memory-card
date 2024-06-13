@@ -94,3 +94,18 @@
 }
 
 }
+
+.greeting_wrapper {
+  text-align: center;
+  z-index: 3;
+  position: absolute;
+  background-color: white;
+  opacity: .9;
+  color: black;
+  height: 60%;
+  margin-top: 20%;
+}
+
+footer {
+  text-align: center;
+}

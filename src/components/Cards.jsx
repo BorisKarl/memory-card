@@ -94,34 +94,47 @@ export default function Game() {
 console.log(mountOK);
 console.log("Spinner? " + spinner);
 
+const handleGreeting = (e) => {
+  e.target.style.display = "none";
+};
+
 
   return (
     <>
       {spinner ? (
         <div className="loading_wrapper">
-          <h1>Klicke jeden Planeten nur ein Mal!
-          Etwas Geduld, die NASA API lädt die Planeten...</h1>
+          <h1>
+            Etwas Geduld, die NASA API lädt
+            die Planeten...
+          </h1>
         </div>
       ) : (
-        <div className="wrapper">
-          <div className="counter">
-            <h1>Punkte: {count} </h1>
-            <h1 className="games_won">Spiele gewonnen: {gamesWon}</h1>{" "}
-            <h1> Highscore: {highScore} </h1>
+        <div>
+          <div className="greeting_wrapper" onClick={handleGreeting}>
+            <h1 className="greeting">
+              Klicke jeden Planeten nur ein Mal!
+            </h1>
           </div>
+          <div className="wrapper">
+            <div className="counter">
+              <h1>Punkte: {count} </h1>
+              <h1 className="games_won">Spiele gewonnen: {gamesWon}</h1>{" "}
+              <h1> Highscore: {highScore} </h1>
+            </div>
 
-          <div className="card_grid">
-            {planets.map((el, index) => (
-              <div key={index} className="card">
-                <img
-                  onClick={handleImageClick}
-                  src={el.imageSrc}
-                  id={index}
-                  alt={el.planet}
-                />
-                <h2 className="planet_name">{el.planet}</h2>
-              </div>
-            ))}
+            <div className="card_grid">
+              {planets.map((el, index) => (
+                <div key={index} className="card">
+                  <img
+                    onClick={handleImageClick}
+                    src={el.imageSrc}
+                    id={index}
+                    alt={el.planet}
+                  />
+                  <h2 className="planet_name">{el.planet}</h2>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
