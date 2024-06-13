@@ -106,7 +106,7 @@ console.log("Spinner? " + spinner);
         <div className="wrapper">
           <div className="counter">
             <h1>Count: {count} </h1>
-            <h1>Games won: {gamesWon}</h1> <h1> High Score: {highScore} </h1>
+            <h1 className="games_won">Games won: {gamesWon}</h1> <h1> High Score: {highScore} </h1>
           </div>
 
           <div className="card_grid">
@@ -117,10 +117,6 @@ console.log("Spinner? " + spinner);
                   src={el.imageSrc}
                   id={index}
                   alt={el.planet}
-                  style={{
-                    width: 200,
-                    height: 200,
-                  }}
                 />
                 <h2 className="planet_name">{el.planet}</h2>
               </div>

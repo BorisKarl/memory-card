@@ -26,6 +26,8 @@
   
 }
 
+
+
 .counter {
   width: 100%;
   margin-bottom: 5%;
@@ -66,4 +68,29 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .card_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+ .card {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+}
+
+.games_won {
+  display: none;
+}
+
+.counter {
+  flex-direction: column;
+  gap: 10px;
+}
+
 }
