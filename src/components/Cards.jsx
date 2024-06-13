@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { dataCount, fetchPlanet } from "./Api";
+import { fetchPlanet } from "./Api";
 
 
 export default function Game() {
@@ -13,10 +13,9 @@ export default function Game() {
   const [mountOK,  setMountOK] = useState(false);
 
   useEffect(() => {
-    
+   
     const fetchPlanets = async () => {
-
-      setSpinner(true);
+       setSpinner(true);
       const mercuryImageSrc = await fetchPlanet("Mercury", 57);
       const venusImageSrc = await fetchPlanet("Venus", 70);
       const earthImageSrc = await fetchPlanet("Earth", 16);
@@ -38,11 +37,12 @@ export default function Game() {
       ];
 
       setPlanets(planetArray);
-      setMountOK(true);
+      setMountOK(false);
       setSpinner(false);
       console.log("Planets set...");
     };
     fetchPlanets();
+
   }, []);
 
   const shuffleArray = (array) => {
@@ -51,6 +51,7 @@ export default function Game() {
       [array[i], array[j]] = [array[j], array[i]];
     }
     console.log("Shuffled!");
+
     return array;
   };
 
@@ -80,7 +81,7 @@ export default function Game() {
   useEffect(() => {
     const checkCounter = () => {
       if (count === 8) {
-        alert("Hoory, you know all the planets!");
+        alert("Hooray, you know all the planets!");
         setHighScore(count);
         setCount(0);
         setClickedImages([]);
@@ -91,39 +92,42 @@ export default function Game() {
   });
 
 console.log(mountOK);
+console.log("Spinner? " + spinner);
+
 
   return (
     <>
-      {spinner ? 
-        <div className="loading_wrapper">
-          <h1>LOADING {dataCount} pictures from the NASA API...</h1>{" "}
+      {spinner ? (
+        <div
+          className="loading_wrapper">
+          <h1>LOADING pictures from the NASA API...</h1>
         </div>
-      : null }
+      ) : (
+        <div className="wrapper">
+          <div className="counter">
+            <h1>Count: {count} </h1>
+            <h1>Games won: {gamesWon}</h1> <h1> High Score: {highScore} </h1>
+          </div>
 
-      <div className="wrapper">
-        <div className="counter">
-          <h1>Count: {count} </h1>
-          <h1>Games won: {gamesWon}</h1> <h1> High Score: {highScore} </h1>
+          <div className="card_grid">
+            {planets.map((el, index) => (
+              <div key={index} className="card">
+                <img
+                  onClick={handleImageClick}
+                  src={el.imageSrc}
+                  id={index}
+                  alt={el.planet}
+                  style={{
+                    width: 200,
+                    height: 200,
+                  }}
+                />
+                <h2 className="planet_name">{el.planet}</h2>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className="card_grid">
-          {planets.map((el, index) => (
-            <div key={index} className="card">
-              <img
-                onClick={handleImageClick}
-                src={el.imageSrc}
-                id={index}
-                alt={el.planet}
-                style={{
-                  width: 200,
-                  height: 200,
-                }}
-              />
-              <h2 className="planet_name">{el.planet}</h2>
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
     </>
   );
 }
