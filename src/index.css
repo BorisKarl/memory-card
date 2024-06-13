@@ -11,24 +11,59 @@
   justify-content: center;
 }
 
+.loading_wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 .card_grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 50px;
   
 }
 
+.counter {
+  width: 100%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+ justify-content: space-between;
+}
+
 .card {
-  text-align: center;
+  position: relative;
   width: 200px;
   height: 200px;
   border: 1px solid black;
   border-radius: 5px;
+  display: flex;
 
 }
 
-.card:hover {
+.planet_name {
+  position: absolute;
+  color: wheat;
+  left: 3%;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity 1s, visibility .2s;
+}
+
+.card:hover .planet_name {
   opacity: .7;
-  background-color: aqua;
+  visibility: visible;
 }
 
+.wrapper {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
