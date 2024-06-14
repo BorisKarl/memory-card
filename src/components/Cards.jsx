@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchPlanet } from "./Api";
+import Loader from "./LoadingSVG";
+
 
 
 export default function Game() {
@@ -101,21 +103,21 @@ const handleGreeting = (e) => {
 
   return (
     <>
-      {spinner ? (
-        <div className="loading_wrapper">
-          <h1>
-            Etwas Geduld, die NASA API lädt
-            die Planeten...
-          </h1>
-        </div>
+     
+      {spinner ? 
+     
+      (
+         <Loader/>
+       
       ) : (
-        <div>
-          <div className="greeting_wrapper" onClick={handleGreeting}>
+        <div onClick={handleGreeting}>
+          <div className="greeting_wrapper">
             <h1 className="greeting">
-            <br/>
-            Hallo Welt! <br/> Das ist ein Memory, bei dem sich nach jedem Klick die Reihenfolge der Planeten ändert.
-            <br/>
-            Klicke jeden Planeten nur ein Mal und klicke einmal zum Anfangen;)
+              <br />
+              Hallo Welt! <br /> Das ist ein Memory, bei dem sich nach jedem
+              Klick die Reihenfolge der Planeten ändert.
+              <br />
+              Klicke jeden Planeten nur ein Mal und klicke zweimal zum Anfangen!
             </h1>
           </div>
           <div className="wrapper">
