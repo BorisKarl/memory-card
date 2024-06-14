@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { fetchPlanet } from "./Api";
 import Loader from "./LoadingSVG";
 
-
-
 export default function Game() {
   //const cardGrid = document.querySelector("card_grid");
   const [planets, setPlanets] = useState([]);
@@ -12,12 +10,11 @@ export default function Game() {
   const [highScore, setHighScore] = useState(0);
   const [spinner, setSpinner] = useState(false);
   const [gamesWon, setGamesWon] = useState(0);
-  const [mountOK,  setMountOK] = useState(false);
+  const [mountOK, setMountOK] = useState(false);
 
   useEffect(() => {
-   
     const fetchPlanets = async () => {
-       setSpinner(true);
+      setSpinner(true);
       const mercuryImageSrc = await fetchPlanet("Mercury", 57);
       const venusImageSrc = await fetchPlanet("Venus", 70);
       const earthImageSrc = await fetchPlanet("Earth", 16);
@@ -26,6 +23,9 @@ export default function Game() {
       const saturnImageSrc = await fetchPlanet("Saturn", 36);
       const uranusImageSrc = await fetchPlanet("Uranus", 61);
       const plutoImageSrc = await fetchPlanet("Pluto", 19);
+
+      mercuryImageSrc.planet = "Merkur";
+      earthImageSrc.planet = "Erde";
 
       const planetArray = [
         mercuryImageSrc,
@@ -44,7 +44,6 @@ export default function Game() {
       console.log("Planets set...");
     };
     fetchPlanets();
-
   }, []);
 
   const shuffleArray = (array) => {
@@ -60,11 +59,11 @@ export default function Game() {
   const handleImageClick = (e) => {
     console.log(clickedImages);
     const clickedImageName = e.target.alt;
-
     if (clickedImages.some((image) => image.name === clickedImageName)) {
       if (highScore < count) {
         setHighScore(count);
       }
+
       alert(clickedImageName + " hattest du schon, schade!");
       setCount(0);
       setClickedImages([]);
@@ -74,11 +73,11 @@ export default function Game() {
         { name: e.target.alt, id: e.target.id },
       ]);
       setCount(count + 1);
-      alert(e.target.alt + " war richtig!");
+      alert(clickedImageName + " ist richtig!");
     }
+
     const array = planets;
     console.log(array);
-
     setPlanets(shuffleArray(array));
   };
 
@@ -91,17 +90,16 @@ export default function Game() {
         setClickedImages([]);
         setGamesWon(gamesWon + 1);
       }
-    }
-     checkCounter();
+    };
+    checkCounter();
   });
 
-console.log(mountOK);
-console.log("Spinner? " + spinner);
+  console.log(mountOK);
+  console.log("Spinner? " + spinner);
 
-const handleGreeting = (e) => {
-  e.target.style.display = "none";
-};
-
+  const handleGreeting = (e) => {
+    e.target.style.display = "none";
+  };
 
   return (
     <>
