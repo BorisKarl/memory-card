@@ -112,7 +112,10 @@ const handleGreeting = (e) => {
         <div>
           <div className="greeting_wrapper" onClick={handleGreeting}>
             <h1 className="greeting">
-              Klicke jeden Planeten nur ein Mal!
+            <br/>
+            Hallo Welt! <br/> Das ist ein Memory, bei dem sich nach jedem Klick die Reihenfolge der Planeten ändert.
+            <br/>
+            Klicke jeden Planeten nur ein Mal und klicke einmal zum Anfangen;)
             </h1>
           </div>
           <div className="wrapper">
