@@ -65,6 +65,7 @@ export default function Game() {
       if (highScore < count) {
         setHighScore(count);
       }
+      alert(clickedImageName + " hattest du schon, schade!");
       setCount(0);
       setClickedImages([]);
     } else {
@@ -73,6 +74,7 @@ export default function Game() {
         { name: e.target.alt, id: e.target.id },
       ]);
       setCount(count + 1);
+      alert(e.target.alt + " war richtig!");
     }
     const array = planets;
     console.log(array);
@@ -103,15 +105,13 @@ const handleGreeting = (e) => {
 
   return (
     <>
-     
-      {spinner ? 
-     
-      (
-         <Loader/>
-       
+      {spinner ? (
+        <div className="test">
+          <Loader />
+        </div>
       ) : (
-        <div onClick={handleGreeting}>
-          <div className="greeting_wrapper">
+        <div>
+          <div onClick={handleGreeting} className="greeting_wrapper">
             <h1 className="greeting">
               <br />
               Hallo Welt! <br /> Das ist ein Memory, bei dem sich nach jedem
