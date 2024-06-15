@@ -64,7 +64,7 @@ export default function Game() {
         setHighScore(count);
       }
 
-      alert(clickedImageName + " hattest du schon, schade!");
+      alert(clickedImageName + " hattest du schon, schade! Versuchs noch mal!");
       setCount(0);
       setClickedImages([]);
     } else {
@@ -112,10 +112,13 @@ export default function Game() {
           <div onClick={handleGreeting} className="greeting_wrapper">
             <h1 className="greeting">
               <br />
-              Hallo Welt! <br /> Das ist ein Memory, bei dem sich nach jedem
-              Klick die Reihenfolge der Planeten ändert.
-              <br />
-              Klicke jeden Planeten nur ein Mal und klicke zweimal zum Anfangen!
+              Hallo Weltraum! <br />
+              Das ist ein Memory, bei dem sich nach jedem Klick die Reihenfolge
+              der Planeten ändert. Du darfst jeden Planeten nur <i>ein</i> Mal
+              klicken, bis Du alle Planeten aus unserem Sonnensystem beisammen
+              hast.
+              <br /> 
+              Klicke zum Anfangen!
             </h1>
           </div>
           <div className="wrapper">
