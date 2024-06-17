@@ -42,7 +42,7 @@ export default function Loader() {
             </circle>
           </svg>
           <h1 className="weelcome_text">
-            Planeten werden über NASA Api geladen...
+            Planeten werden über die NASA Api geladen...
           </h1>
         </div>
       </>
