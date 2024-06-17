@@ -84,7 +84,7 @@ export default function Game() {
   useEffect(() => {
     const checkCounter = () => {
       if (count === 8) {
-        alert("Gut gemacht, das waren alle acht Planeten!");
+        alert("Gut gemacht, das waren alle acht Planeten! Versuche es nochmal");
         setHighScore(count);
         setCount(0);
         setClickedImages([]);
@@ -103,47 +103,49 @@ export default function Game() {
 
   return (
     <>
-      {spinner ? (
-        <div className="test">
-          <Loader />
-        </div>
-      ) : (
-        <div>
-          <div onClick={handleGreeting} className="greeting_wrapper">
-            <h1 className="greeting">
-              <br />
-              Hallo Weltraum! <br />
-              Das ist ein Memory, bei dem sich nach jedem Klick die Reihenfolge
-              der Planeten ändert. Du darfst jeden Planeten nur <i>ein</i> Mal
-              klicken, bis Du alle Planeten aus unserem Sonnensystem beisammen
-              hast.
-              <br /> 
-              Klicke zum Anfangen!
-            </h1>
+      <div className="main_content">
+        {spinner ? (
+          <div className="test">
+            <Loader />
           </div>
-          <div className="wrapper">
-            <div className="counter">
-              <h1>Punkte: {count} </h1>
-              <h1 className="games_won">Spiele gewonnen: {gamesWon}</h1>{" "}
-              <h1> Highscore: {highScore} </h1>
+        ) : (
+          <div>
+            <div onClick={handleGreeting} className="greeting_wrapper">
+              <h1 className="greeting">
+                <br />
+                Hallo Weltraum! <br />
+                Das ist ein Memory, bei dem sich nach jedem Klick die
+                Reihenfolge der Planeten ändert. Du darfst jeden Planeten nur{" "}
+                <i>ein</i> Mal klicken, bis Du alle Planeten aus unserem
+                Sonnensystem beisammen hast.
+                <br />
+                Klicke zum Anfangen!
+              </h1>
             </div>
+            <div className="wrapper">
+              <div className="counter">
+                <h1>Punkte: {count} </h1>
+                <h1 className="games_won">Spiele gewonnen: {gamesWon}</h1>{" "}
+                <h1> Highscore: {highScore} </h1>
+              </div>
 
-            <div className="card_grid">
-              {planets.map((el, index) => (
-                <div key={index} className="card">
-                  <img
-                    onClick={handleImageClick}
-                    src={el.imageSrc}
-                    id={index}
-                    alt={el.planet}
-                  />
-                  <h2 className="planet_name">{el.planet}</h2>
-                </div>
-              ))}
+              <div className="card_grid">
+                {planets.map((el, index) => (
+                  <div key={index} className="card">
+                    <img
+                      onClick={handleImageClick}
+                      src={el.imageSrc}
+                      id={index}
+                      alt={el.planet}
+                    />
+                    <h2 className="planet_name">{el.planet}</h2>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 }
